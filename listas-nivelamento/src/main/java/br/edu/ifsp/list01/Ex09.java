@@ -16,17 +16,37 @@ package br.edu.ifsp.list01;
     | 25 30 45 -1         | 33.33 3 0.00%  |
     => Exercício gentilmente cedido pelos profs. Jorge Cutigi (IFSP/SCL) e Adenilso Simão (ICMC/USP)
 */
+import java.util.Scanner;
 public class Ex09 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Scanner scanner = new Scanner(System.in);
+        int []soma = new int[100];
+        int x, i = 0;
+        while(true){
+            x = scanner.nextInt();
+            if(x <= -1) break;
+            soma[i++] = x;
+        }
+        Ex09 teste = new Ex09();
+        System.out.println(teste.compute(soma));
     }
 
     String compute(int[] input) {
         String output = null;
-        //put your logic here
+        double media = 0,idosas =0;
+        int i = 0, maioresIdade= 0;
+        while(input[i] > -1){
+            media += input[i];
+            if(input[i] >= 18) {
+                maioresIdade +=1;
+                if(input[i] > 75) idosas += 1;
+            }
+            i++;
+        }
+        media /= i;
+        idosas = (idosas*100)/i;
+        output = String.format("%.2f %d %.2f%%", media, maioresIdade, idosas);
         return output;
     }
 }

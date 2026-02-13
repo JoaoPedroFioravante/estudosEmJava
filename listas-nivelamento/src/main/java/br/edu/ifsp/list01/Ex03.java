@@ -27,10 +27,10 @@ public class Ex03 {
     }
 
     String compute(int ano) {
-        String output = "ano nao bissexto";
+        String output = "Ano nao bissexto";
         if(ano < 1) output = "Erro";
-        else if(ano%400 == 0) output = "ano bissexto";
-        else if(ano%4 == 0 && ano%100 != 0)output = "ano bissexto";
+        else if(ano%400 == 0) output = "Ano bissexto";
+        else if(ano%4 == 0 && ano%100 != 0)output = "Ano bissexto";
         return output;
     }
 }

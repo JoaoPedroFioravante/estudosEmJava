@@ -38,8 +38,8 @@ public class Ex05 {
         String output =  "0.00";
         if(v>L){
             double taxaAdicional = (v-L)*a;
-            double multa = m + taxaAdicional;
-            output = String.valueOf(multa);
+            double multa =  ( m + taxaAdicional);
+            output = String.format("%.2f",multa);
         }
         return output;
     }

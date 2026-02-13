@@ -32,6 +32,16 @@ public class Ex04 {
         if(n > 0){
             int qtd = n/c;
             int bonus = qtd/m;
+            int x = bonus + qtd%m;
+            int h;
+            while(x >= m) {
+                bonus += x/m;
+                h = x%m;
+
+                x/=m;
+                x+=h;
+
+            }
             output = bonus + qtd;
         }
         return output;

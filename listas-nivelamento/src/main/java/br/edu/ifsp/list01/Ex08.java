@@ -19,17 +19,25 @@ package br.edu.ifsp.list01;
     Fonte: Adaptado de https://neps.academy/problem/193
     => Exercício gentilmente cedido pelos profs. Jorge Cutigi e Adenilso Simão (ICMC/USP)
 */
+import java.util.Scanner;
 public class Ex08 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Scanner scanner = new Scanner(System.in);
+        int[] comprasLimao = new int[2];
+        for(int i =0; i<2; i++) comprasLimao[i] = scanner.nextInt();
+        Ex08 teste = new Ex08();
+        System.out.println(teste.compute(comprasLimao[0], comprasLimao[1]));
     }
 
     int compute(int n, int c) {
-        int output = -1;
-        //put your logic here
+        int output = 0;
+        int x = 1;
+        while(n>0){
+            n--;
+            output += c;
+            if(c>1)c--;
+        }
         return output;
     }
 }

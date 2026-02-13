@@ -35,7 +35,7 @@ public class Ex02 {
         String output = null;
         int tipo = 0;
         if(a <= 0 || b <= 0 || c <= 0){
-            output = "erro";
+            output = "Erro";
         }
         else{
             int ab =a+b, bc =b+c, ac =a+c;

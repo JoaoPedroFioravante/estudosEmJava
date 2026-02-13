@@ -26,14 +26,16 @@ package br.edu.ifsp.list01;
 */
 public class Ex10 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+
     }
 
     String compute(int x1, int v1, int x2, int v2) {
         String output = null;
-        //put your logic here
+        if(((x1 < x2 && v1 > v2) || (x2 < x1 && v2 > v1)) ){
+            int xmaior, vmaior, xmenor, vmenor, inicial = v1*v2;
+            output = "SIM";
+        }
+        else output = "NAO";
         return output;
     }
 }
