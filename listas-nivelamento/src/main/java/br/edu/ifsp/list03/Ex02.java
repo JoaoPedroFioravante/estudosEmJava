@@ -15,7 +15,32 @@ public class Ex02 {
 
     String compute(String word, int number) {
         String output = null;
-        //put your logic here
-        return output;
+        if(number == 0 || number>word.length()) return null;
+        else if(number == word.length()) return word += " " + word;
+            String ultima= "", primeira= "";
+            char ultimaC = word.charAt(0), primeiraC = word.charAt(0);
+            int ultPos = 0, priPos = 0;
+            for(int i = 0; i<word.length(); i++){
+                    if(word.charAt(i)>ultimaC && (i+number-1)<word.length()){
+                        ultimaC = word.charAt(i);
+                        ultPos = i;
+                    }
+                    else if(word.charAt(i)<primeiraC && (i+number-1)<word.length()){
+                        primeiraC = word.charAt(i);
+                        priPos = i;
+                    }
+
+                }
+
+
+            for(int i = 0; i<number; i++){
+                primeira += word.charAt(priPos+i);
+                ultima += word.charAt(ultPos+i);
+            }
+            primeira+=" "+ultima;
+            return primeira;
+
+
+
     }
 }

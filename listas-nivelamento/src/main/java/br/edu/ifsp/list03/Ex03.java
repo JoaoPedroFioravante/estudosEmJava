@@ -13,8 +13,14 @@ public class Ex03 {
     }
 
     String compute(String input) {
-        String output = null;
-        //put your logic here
-        return output;
+        if(input == null || input == "")return "Erro";
+        input = input.toLowerCase();
+        char[] frente = input.toCharArray();
+        int tamanho = input.length()-1;
+        for(int i = 0; i<tamanho+1; i++){
+            if(frente[tamanho--] != input.charAt(i)) return "Nao";
+        }
+
+        return "Sim";
     }
 }

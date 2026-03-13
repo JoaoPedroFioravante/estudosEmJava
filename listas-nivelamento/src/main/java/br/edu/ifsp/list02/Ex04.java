@@ -34,7 +34,8 @@ public class Ex04 {
 
     int compute(int ia, int ib, int fa, int fb) {
         int output = -1;
-        //put your logic here
-        return output;
+        if(ia == fa && ib == fb) return 0;
+        else if(ia == fa && ib != fb) return 2;
+        else return 1;
     }
 }

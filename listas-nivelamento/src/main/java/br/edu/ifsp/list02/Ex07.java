@@ -48,7 +48,20 @@ public class Ex07 {
 
     String compute(int x, int y, int l1, int h1, int l2, int h2) {
         String output = null;
-        //put your logic here
-        return output;
+        //caso uma embaixo da outra
+        if (x >= h1 + h2) {
+            int maiorl;
+            if (l1 > l2) maiorl = l1;
+            else maiorl = l2;
+            if (maiorl <= y) return "S";
+        }
+        // caso ao lado
+        else if (y >= h1 + h2) {
+            int maiorl;
+            if (l1 > l2) maiorl = l1;
+            else maiorl = l2;
+            if (maiorl <= x) return "S";
+        }
+        return "N";
     }
 }

@@ -30,14 +30,19 @@ package br.edu.ifsp.list02;
  */
 public class Ex10 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Ex10 ex = new Ex10();
+        ex.compute(0,0,0,135,4);
     }
-
     String compute(int x, int y, int a, int f, int d) {
         String output = null;
-        //put your logic here
+        if(d<0)return "Erro";
+        double ang = Math.toRadians(a+(f-90));
+        double seno = Math.sin(ang), cosseno = Math.cos(ang);
+        int x2 =(int) Math.round((x)+(seno*d)), y2 = (int)Math.round((y)+(cosseno*d));
+
+
+        output = "("+x2+","+y2+")";
+        System.out.println(output);
         return output;
     }
 }

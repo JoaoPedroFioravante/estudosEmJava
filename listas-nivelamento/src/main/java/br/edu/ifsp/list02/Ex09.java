@@ -50,7 +50,18 @@ public class Ex09 {
 
     String compute(int a, int b, int c, int h, int l) {
         String output = null;
-        //put your logic here
-        return output;
+        int[] x = {a, b,c};
+        int z, y;
+       for(int i =0; i<2; i++){
+           z = i;
+           for(int j = 1; j<3; j++){
+               if(x[z]>x[j]) z = j;
+           }
+           y = x[z];
+           x[z] = x[i];
+           x[i] = y;
+       }
+       if(x[0]<=h && x[1]<=l || x[0]<=l && x[1]<=h) return "S";
+       return "N";
     }
 }

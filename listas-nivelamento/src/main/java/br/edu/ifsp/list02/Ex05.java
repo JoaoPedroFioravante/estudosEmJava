@@ -28,7 +28,21 @@ public class Ex05 {
 
     int compute(int[] velas) {
         int output = -1;
-        //put your logic here
-        return output;
+        int x, z;
+        for(int i = 0; i< (velas.length - 1);i++){
+            x = i;
+            for(int j = i+1; j<velas.length; j++){
+                if(velas[x] < velas[j]) x = j;
+            }
+            z = velas[x];
+            velas[x] = velas[i];
+            velas[i] = z;
+        }
+        x = 1;
+        do{
+            if(x < velas.length && velas[x] == velas[0]) x++;
+            else break;
+        } while(true);
+        return  x;
     }
 }

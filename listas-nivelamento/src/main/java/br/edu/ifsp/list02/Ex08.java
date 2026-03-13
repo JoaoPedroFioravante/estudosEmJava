@@ -37,7 +37,13 @@ public class Ex08 {
 
     String compute(int[] giftsWeights) {
         String output = null;
-        //put your logic here
-        return output;
+        int la = 0, lb = 0;
+        for(int i = 0; i< giftsWeights.length; i++){
+            if(la-lb > 5 || lb-la > 5) return "N";
+            if(i==0) la+=giftsWeights[i];
+            else if(la > lb) lb+=giftsWeights[i];
+            else la+=giftsWeights[i];
+        }
+        return "S";
     }
 }

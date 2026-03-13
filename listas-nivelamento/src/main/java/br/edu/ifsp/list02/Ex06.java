@@ -26,8 +26,14 @@ public class Ex06 {
     }
 
     String compute(int[] arrayA, int[] arrayB) {
-        String output = null;
-        //put your logic here
+        String output = "";
+        int x = 0;
+        int [] c = new int[(arrayA.length)*2];
+        for(int i = 0; i<arrayA.length; i++){
+            c[x++] = arrayA[i];
+            c[x++] = arrayB[i];
+            output += String.valueOf(arrayA[i]) +" "+ String.valueOf(arrayB[i]) +" ";
+        }
         return output;
     }
 }

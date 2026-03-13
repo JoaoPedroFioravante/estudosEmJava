@@ -5,6 +5,7 @@ Dada duas Strings A e B, faça um programa que imprima “Sim” se A e B são a
 Um anagrama é a transposição de letras de palavra ou frase para formar outra palavra ou frase diferente.
 Por exemplo, as palavras “roma” e “amor” são anagramas. Considere como entrada apenas palavras com letras minúsculas.
  */
+
 public class Ex04 {
     public static void main(String[] args) {
         //Leia o ‘input’
@@ -13,8 +14,19 @@ public class Ex04 {
     }
 
     String compute(String wordA, String wordB) {
-        String output = null;
-        //put your logic here
-        return output;
+    if(wordA == null || wordB==null || wordA.isEmpty() || wordB.isEmpty() || wordA.length() != wordB.length()) return "Nao";
+    int tamanho = wordA.length();
+    char [] a = new char[tamanho];
+    char [] b = new char[tamanho];
+    a = wordA.toCharArray();
+    b = wordB.toCharArray();
+    java.util.Arrays.sort(a);
+    java.util.Arrays.sort(b);
+    for(int i = 0; i<tamanho; i++){
+        System.out.printf("%c %c \n", a[i], b[i]);
+        if(a[i]!=b[i])return "Nao";
+    }
+    return "Sim";
+
     }
 }

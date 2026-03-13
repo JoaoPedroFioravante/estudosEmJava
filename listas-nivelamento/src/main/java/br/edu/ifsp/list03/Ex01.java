@@ -19,7 +19,28 @@ public class Ex01 {
 
     String compute(String input) {
         String output = null;
-        //put your logic here
+        if( input == null) return "Invalido";
+        if(input.length() < 2) return "Invalido";
+        output = "";
+        int tamanho = input.length();
+        String add = "";
+        //
+        for(int i = 1; i<tamanho; i++){
+            for(int j = 0; j<i; j++){
+                output += input.charAt(j);
+            }
+            output += "*";
+        }
+      // 3 . 0 1 2 ; 2. 0 1; 1 . 0; 0
+        for(int i = tamanho-1; i>0; i--){
+            for(int j = 0; j<i; j++){
+                output+= input.charAt(j);
+            }
+            if(i!=1){
+                output+="*";
+                System.out.printf("%d", i);
+            }
+        }
         return output;
     }
 }
