@@ -1,5 +1,12 @@
 public class Team {
+
+    //TODO as implementações estão o caminho certo.
+    // Não se assuste com o número de comentários, é apenas para dar uma lapidada inicial.
+
+
     private String name, baseLocation, coachName;
+    //TODO se referência para a lista na memória não deve mudar, você pode utilizar o final para indicar isso.
+    // É o que a IDE está te contando ao marcar em amarelo nessa linha.
     private Player[] players = new Player[18];
     private Player captain;
     private int qtdPlayers = 0, inField = 0, outField = 0;
@@ -12,6 +19,7 @@ public class Team {
         this.coachName = coachName;
     }
 
+    //TODO setters e getters para o final
     public void setBaseLocation(String baseLocation){
         this.baseLocation = baseLocation;
     }
@@ -37,6 +45,8 @@ public class Team {
     }
 
     public void removePlayer(Player player){
+        //TODO daria para dar uma simplificada aqui, principalmente porque você já tem a instância.
+        //O mais importante é limpar o array.
         int index = searchPlayer(player);
         if(index!=-1) {
             if (player.getField()) {
@@ -62,6 +72,7 @@ public class Team {
         }
     }
 
+    //TODO coloque os métodos pela ordem que são chamados. Por exemplo, esse método, depois o searchOutField, depois arrayRemove.
     private int searchPlayer(Player player){
         if(player.getTeamPlayer() == this){
             for(int  i = 0; i<qtdPlayers; i++){
@@ -109,7 +120,7 @@ public class Team {
         Player[] x = new Player[inField];
         int c = 0;
         for(int i = 0; i<qtdPlayers; i++) {
-            if(players[i].getField()) x[c++] = players[i];
+            if(players[i].getField()) x[c++] = players[i]; //TODO na maioria dos casos, evite de deixar o if na mesma linha do comando
         }
         return x;
     }
