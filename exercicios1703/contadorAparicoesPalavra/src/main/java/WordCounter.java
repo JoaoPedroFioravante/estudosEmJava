@@ -1,8 +1,6 @@
-import java.util.Locale;
-
 public class WordCounter {
 
-    public static int timesInSentence(String word, String sentence){
+    public static int timesInSentence(String word, String sentence) {
         String sentenceInUse = sweepSimbolsOf(sentence.toLowerCase());
         String wordInUse = word.toLowerCase();
 
@@ -11,14 +9,16 @@ public class WordCounter {
         return counter(wordInUse, wordsInSentence);
     }
 
-    private static String sweepSimbolsOf(String sentence){
+
+    //TODO para que isso aqui? Para trocar caracteres? Que tal usar replace. Método complicado de entender ...
+    private static String sweepSimbolsOf(String sentence) {
         String simbols = "!.%&?,;:/°[]{}=+-)(*&$#@";
         StringBuilder stringReturn = new StringBuilder();
-        char character, lastChar=' ';
-        for(int i = 0; i<sentence.length(); i++){
+        char character, lastChar = ' ';
+        for (int i = 0; i < sentence.length(); i++) {
             character = sentence.charAt(i);
-            if(!simbols.contains(String.valueOf(character))){
-                if(character!=' ' && i>0 && simbols.contains(String.valueOf(lastChar))){
+            if (!simbols.contains(String.valueOf(character))) {
+                if (character != ' ' && i > 0 && simbols.contains(String.valueOf(lastChar))) {
                     stringReturn.append(lastChar);
                 }
                 stringReturn.append(character);
@@ -30,10 +30,12 @@ public class WordCounter {
         System.out.println(stringReturn);
         return stringReturn.toString();
     }
-    private static int counter(String word, String[] sentence){
+
+    private static int counter(String word, String[] sentence) {
         int counter = 0;
-        for(int i = 0; i<sentence.length; i++){
-            if(word.equals(sentence[i]))
+        //TODO você pode usar loop de coleções, já que o index é irrelevante ( for(String s: sentence) )
+        for (int i = 0; i < sentence.length; i++) {
+            if (word.equals(sentence[i]))
                 counter++;
         }
         return counter;

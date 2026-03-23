@@ -8,6 +8,7 @@ public class Schedule {
     private Meeting[] meetings = new Meeting[20];
     private int meetingsIndex = 0;
 
+    //TODO os comentários de Meeting também valem aqui
     public static Schedule createSchedule(LocalDate day, LocalTime startTime, LocalTime endTime){
         if(startTime.isBefore(endTime)){
             return new Schedule(day, startTime, endTime);
@@ -27,6 +28,9 @@ public class Schedule {
     }
 
     public void addMeeting(Meeting meeting){
+        // TODO desenhe as duas linhas do tempo no papel, dá para simplificar isso com duas partes só + isValidMeeting
+        // TODO quebre as guard clauses em ifs separados (primeiro um que retorna se for fora do expediente e outra se
+        //  colide com algum meeting já existente. Isso melhora a legibilidade.
         if(meeting.getStartTime().isAfter(startTime) && meeting.getEndTime().isBefore(endTime)
                 && meeting.getEndTime().isAfter(meeting.getStartTime()) && isMeetingValid(meeting))
         {
@@ -34,6 +38,7 @@ public class Schedule {
         }
     }
 
+    // TODO desenhe as duas linhas do tempo no papel, dá para simplificar isso com duas partes só
     private boolean isMeetingValid(Meeting meeting){
         for(int i = 0; i<meetingsIndex; i++){
             if(!(meeting.getEndTime().isBefore(meetings[i].getStartTime()) || meeting.getStartTime().isAfter(meetings[i].getEndTime()))){
@@ -43,6 +48,8 @@ public class Schedule {
         return true;
     }
 
+    //TODO como os meets nào estão ordenados, é mais simples colocar o meeting na última posição no lugar do removido
+    // e decrementar o contador. E ainda fica O(1) ao invés de O(n) ;)
     public void removeMeeting(Meeting meeting){
         for(int i =0; i<meetingsIndex; i++){
             if(meeting == meetings[i]){
@@ -56,7 +63,7 @@ public class Schedule {
     }
 
     public double percentageSpentInMeetings(){
-        long durationDay = Duration.between(startTime, endTime).toMinutes(), sumMeetingsDuration = 0;
+        long durationDay = Duration.between(startTime, endTime).toMinutes(), sumMeetingsDuration = 0; // TODO uma declaração por linha por legibilidade.
 
         for(int i = 0; i<meetingsIndex; i++){
             sumMeetingsDuration += meetings[i].durationInMinutes();
