@@ -12,14 +12,6 @@ public class Paycheck {
         this.salary = salary;
     }
 
-    public LocalDate getPayday() {
-        return payday;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Paycheck paycheck)) return false;
@@ -37,5 +29,15 @@ public class Paycheck {
         return "Paycheck: " +
                 "payday: " + payday +
                 " salary: " + salary;
+    }
+
+    //TODO getters e setters sempre no final
+
+    public LocalDate getPayday() {
+        return payday;
+    }
+
+    public double getSalary() {
+        return salary;
     }
 }

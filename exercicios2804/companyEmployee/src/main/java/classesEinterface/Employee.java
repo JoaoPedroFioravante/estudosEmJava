@@ -89,6 +89,7 @@ public class Employee {
         JobTitle = jobTitle;
     }
 
+    //TODO como o salário só aumenta, o melhor nome seria increaseSalary mesmo. Nem sempre precisa chamar set ...
     protected void setSalary(double salary) {
         if(salary <= this.salary) return;
         this.salary = salary;

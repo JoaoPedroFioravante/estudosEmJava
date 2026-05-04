@@ -3,8 +3,18 @@ package classesEinterface;
 import java.time.LocalDate;
 import java.util.Iterator;
 
+//TODO Service -> Entidade, nunca Entidade -> Service.
+
+//TODO No exercício, Company é uma entidade que agrega Employees. A lógica de hire (colocar na lista),
+// fire (remover da lista), get (iterator ou cópia de lista) devem ficar dentro dela. No caso, um service,
+// externo a entidade, serve para pegar validar parâmetros e pré-condições, obter as entidades de repositórios,
+// delegar a lógica a essas entidades (chamar hire, fire de Company) e atualizar infos no repositório.
+// Isso não se aplica muito ao que foi pedido ao exercício. Cuidado com o overengineering.
+
 public class Company{
     private String name;
+
+
     private final ICompany<Employee, String, String> ICompany;
 
     public Company(String name, ICompany<Employee, String, String> ICompany) {
