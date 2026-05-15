@@ -16,19 +16,22 @@ public class CompanyFakeRepository implements CompanyRepository {
     }
 
     @Override
-    public Employee findById(String id) {
-        return employeeMap.get(id);
+    public Optional<Employee> findById(String id) {
+        return Optional.ofNullable(employeeMap.get(id)); // TODO se o employeeMap.get(id) retornar null, ele vai criar um Optiona.EMPTY (evita null pointer acidental)
     }
 
     @Override
     public List<Employee> findAll() {
-        return employeeMap.values()
-                .stream()
-                .toList();
+        //TODO CREDO!
+//        return employeeMap.values()
+//                .stream()
+//                .toList();
+        return new ArrayList<>(employeeMap.values());
     }
 
     @Override
     public List<Employee> findByJobTitle(String jobTitle) {
+        //TODO aqui sim precisa do stream, porque tem o que fazer com os dados (filtar)
         return employeeMap.values()
                 .stream()
                 .filter(e->e.getJobTitle().equals(jobTitle))

@@ -29,11 +29,12 @@ public class Employee {
     public double getYearsOfService(){
         return (double)Period.between(dateOfEmployment, LocalDate.now()).getMonths()/12;
     }
+
     //+ addPaycheck(payday: LocalDate): void
     public void addPaycheck(LocalDate payday){
         Objects.requireNonNull(payday, "data do holerite não pode estar nula");
         Paycheck paycheck = new Paycheck(payday, salary);
-        Objects.requireNonNull(paycheck, "não foi possivel adicionar paycheck");
+        Objects.requireNonNull(paycheck, "não foi possivel adicionar paycheck"); // TODO essa linha não faz sentido, você só deve ver nulidade de parametros. Aqui você acabou de dar new.
         paychecks.add(paycheck);
     }
 
@@ -78,6 +79,10 @@ public class Employee {
 
     public String getJobTitle() {
         return jobTitle;
+    }
+
+    public List<Paycheck> getPaychecks() {
+        return new ArrayList<>(paychecks);
     }
 
     public void setJobTitle(String jobTitle) {
