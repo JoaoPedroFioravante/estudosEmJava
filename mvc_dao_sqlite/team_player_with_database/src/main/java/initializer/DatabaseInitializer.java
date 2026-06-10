@@ -67,7 +67,7 @@ public class DatabaseInitializer {
             System.err.println(e.getMessage() + "\n falha ao excluir tabela player");
         }
     }
-    
+
     public static void dropTableTeam(){
         String sqlDropTeam = "drop table team";
         try(var preparedStatementTeam = ConnectionFactoryMethod.getPreparedStatement(sqlDropTeam)) {
