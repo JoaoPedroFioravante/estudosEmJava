@@ -21,9 +21,9 @@ public class DatabaseInitializer {
                   NUMBER INTEGER not null,
                   POSITION TEXT,
                   IS_FIELD INTEGER default 0,
-                  TEAM_NAME TEXT not null,
+                  TEAM_NAME TEXT default null,
                   constraint player_pk primary key(ID),
-                    constraint player_team_name_fk foreign key (TEAM_NAME) references TEAM(NAME) on delete cascade
+                    constraint player_team_name_fk foreign key (TEAM_NAME) references TEAM(NAME) on delete set null
                 );
                 """;
         try(var preparedStatementTablePlayer = ConnectionFactoryMethod.getPreparedStatement(sql)){
