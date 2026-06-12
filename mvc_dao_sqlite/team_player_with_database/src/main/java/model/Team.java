@@ -15,6 +15,13 @@ public class Team {
         captain = null;
     }
 
+    public Team(String name, String baseLocation, String coachName, Player captain){
+        this.name = name;
+        this.baseLocation = baseLocation;
+        this.coachName = coachName;
+        this.captain = captain;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;

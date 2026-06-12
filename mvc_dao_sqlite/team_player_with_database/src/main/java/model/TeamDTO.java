@@ -5,6 +5,8 @@ public record TeamDTO(String name,
         String coachName,
         PlayerDTO captain) {
     public static TeamDTO toDTO(Team team){
+        if(team == null)
+            return null;
         var captain = team.getCaptain();
         return new TeamDTO(team.getName(),
                 team.getBaseLocation(),

@@ -9,14 +9,12 @@ public class SqlitePlayer implements DAO<PlayerDTO, Integer> {
 
     @Override
     public void add(PlayerDTO entity) {
-        String sql = "INSERT INTO PLAYER VALUES(?,?,?,?,?,?)";
+        String sql = "INSERT INTO PLAYER (id, name, number, position) VALUES(?,?,?,?)";
         try(var preparedStatement = ConnectionFactoryMethod.getPreparedStatement(sql)){
             preparedStatement.setInt(1, entity.id());
             preparedStatement.setString(2, entity.name());
             preparedStatement.setInt(3, entity.number());
             preparedStatement.setString(4, entity.position());
-            preparedStatement.setInt(5, entity.isFielded()?1:0);
-            preparedStatement.setString(6, entity.team());
             preparedStatement.executeUpdate();
         }catch (SQLException e){
             System.err.println(e.getMessage() + "\n falha ao adicionar player");
@@ -36,14 +34,13 @@ public class SqlitePlayer implements DAO<PlayerDTO, Integer> {
 
     @Override
     public void update(PlayerDTO entity) {
-        String sql = "UPDATE PLAYER SET NAME = ?, NUMBER = ?, POSITION = ?, IS_FIELD = ?, TEAM_NAME = ? WHERE ID = ?";
+        String sql = "UPDATE PLAYER SET  NUMBER = ?, POSITION = ?, IS_FIELD = ?, TEAM_NAME = ? WHERE ID = ?";
         try(var preparedStatement = ConnectionFactoryMethod.getPreparedStatement(sql)){
-            preparedStatement.setString(1, entity.name());
-            preparedStatement.setInt(2, entity.number());
-            preparedStatement.setString(3, entity.position());
-            preparedStatement.setInt(4, entity.isFielded()?1:0);
-            preparedStatement.setString(5, entity.team());
-            preparedStatement.setInt(6, entity.id());
+            preparedStatement.setInt(1, entity.number());
+            preparedStatement.setString(2, entity.position());
+            preparedStatement.setInt(3, entity.isFielded()?1:0);
+            preparedStatement.setString(4, entity.team());
+            preparedStatement.setInt(5, entity.id());
             preparedStatement.executeUpdate();
         }
         catch (SQLException e){

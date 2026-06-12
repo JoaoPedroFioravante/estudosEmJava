@@ -8,7 +8,7 @@ public class Player {
     private String name;
     private int number;
     private boolean isFielded;
-    private Team team;
+    private String keyTeam;
 
     public Player(int id, String name, String position, int number, boolean isFielded) {
         this.id = id;
@@ -16,6 +16,16 @@ public class Player {
         this.position = position;
         this.number = number;
         this.isFielded = isFielded;
+        keyTeam = null;
+    }
+
+    public Player(int id, String name, String position, int number, boolean isFielded, String keyTeam) {
+        this.id = id;
+        this.name = name;
+        this.position = position;
+        this.number = number;
+        this.isFielded = isFielded;
+        this.keyTeam = keyTeam;
     }
 
     @Override
@@ -39,7 +49,7 @@ public class Player {
                 " name: " + name +
                 " number: " + number +
                 " isFielded: " + isFielded +
-                " team: " + team;
+                " team: " + keyTeam;
     }
 
     public int getId() {
@@ -78,11 +88,11 @@ public class Player {
         isFielded = fielded;
     }
 
-    public Team getTeam() {
-        return team;
+    public String getTeam() {
+        return keyTeam;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
+    public void setTeam(String team) {
+        this.keyTeam = team;
     }
 }

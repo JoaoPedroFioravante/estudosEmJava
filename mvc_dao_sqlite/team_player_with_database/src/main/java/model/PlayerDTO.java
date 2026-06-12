@@ -7,6 +7,13 @@ public record PlayerDTO(int id,
         boolean isFielded,
         String team) {
     public static PlayerDTO toDTO(Player player){
-        return new PlayerDTO(player.getId(), player.getPosition(), player.getName(), player.getNumber(), player.isFielded(), player.getTeam().getName());
+        if(player == null)
+            return null;
+        return new PlayerDTO(player.getId(),
+                player.getPosition(),
+                player.getName(),
+                player.getNumber(),
+                player.isFielded(),
+                player.getTeam());
     }
 }
